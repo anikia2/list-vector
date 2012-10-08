@@ -1,12 +1,112 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
+#include<iostream>
+#include<vector>
+using namespace std;
 
-# Compiled Dynamic libraries
-*.so
+int main(){
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
+  vector<int> v1; // definiciq na vektor
+	
+	cout << "v1 size=" << v1.size() << endl;
+	cout << "v1 cap =" << v1.capacity() << endl;
+	
+	
+	v1.push_back(1); // dobavi element nakraq na vektora
+	
+	cout << "v1 size=" << v1.size() << endl;
+	cout << "v1 cap =" << v1.capacity() << endl;
+	cout << "v1 back=" << v1.back() << endl; // vrushta posledniq element bez da go trie
+	
+	v1.push_back(2); // dobavi element nakraq na vektora
+	
+	cout << "v1 size=" << v1.size() << endl;
+	cout << "v1 cap =" << v1.capacity() << endl;
+	cout << "v1 back=" << v1.back() << endl;	
+	
+	v1.push_back(3); // dobavi element nakraq na vektora
+	
+	cout << "v1 size=" << v1.size() << endl;
+	cout << "v1 cap =" << v1.capacity() << endl;
+	cout << "v1 back=" << v1.back() << endl;	
+	
+	v1.pop_back(); // trie posledniq element ot masiva
+	
+	cout << "v1 size=" << v1.size() << endl;  // size golemina na vektora
+	cout << "v1 cap =" << v1.capacity() << endl; // otdelena pamet /kapacitet
+	cout << "v1 back=" << v1.back() << endl;
+	for (int i = 0 ; i<v1.size(); i++){
+		cout << "v1["<< i <<"]="<<v1[i]<< endl;
+		cout<< "v1.at("<<i<<")="<< v1.at(i) << endl;
+	}	
+	
+	//v1.at(30); // proverqva dali indeksa e validen toest imali takuv element vuv vektora
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+return 0;
+}
+------------------------------------
+#include<iostream>
+#include<vector>
+using namespace std; // iterator - sluji za optimalno obhojdane na suotvetniq klas (burzodeistvie)
+
+int main(){
+
+  vector<int> v;
+	
+	for(int i =0 ; i <10 ;i++){
+			v.push_back(i);
+	}
+		
+	
+	for(int i= 0; i<10 ; i++){
+		cout << "v["<<i<<"]=" << v[i]<< endl;
+	}
+	
+	vector<int>::iterator it ; // it e iterator za obhojdane
+	
+	for(it=v.begin() ;it!=v.end();it++ ) { // v.begin() dava iterator kum purviq element /v.end() suotvetno edin element sled kraq na vektora
+		cout<< (*it) <<endl;
+	}
+	
+	
+	
+	return 0 ;
+--------------------------------
+#include<iostream>
+#include<list>
+using namespace std;
+
+int main(){
+  int a[]={0,1,2,3,4,5,6,7,8,9};
+	list<int>l(a , a+10);
+	
+	
+	for(list<int>::iterator it=l.begin();it != l.end(); ++it){
+	
+		cout << (*it)<< " ";
+	}
+	cout << endl;
+	
+	l.push_back(10);
+	l.push_front(-1); // dobavq element v nachaloto na spisuka
+	for(list<int>::iterator it=l.begin();it != l.end(); ++it){	
+		cout << (*it)<< " ";
+	}	
+	cout<endl;
+
+	cout<<"front=" <<l.front() << endl;
+	cout<<"back=" <<l.back() << endl;
+	l.pop_front();
+	l.pop_back();
+	return 0;
+}
+ 
+}
